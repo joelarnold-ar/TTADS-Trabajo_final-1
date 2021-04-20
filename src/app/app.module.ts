@@ -1,18 +1,34 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// ? Importaciones de componentes propios
+import { AngularMaterialModule } from './compartido/angular-material.module';
+import { InicioSesionComponent } from './componentes/sesion/inicio-sesion/inicio-sesion.component';
+import { RegistroUsuarioComponent } from './componentes/sesion/registro-usuario/registro-usuario.component';
+import { InicioComponent } from './componentes/inicio/inicio.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InicioComponent,
+    InicioSesionComponent,
+    RegistroUsuarioComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

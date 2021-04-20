@@ -1,0 +1,29 @@
+#botonIngresar {
+    background-color: rgb(76, 175, 80);
+    color: black !important;
+    width: 100%;
+    height: 50px;
+    margin-top: 50px;
+}
+
+#botonIngresar:hover {
+    background-color: #137e4a;
+}
+
+mat-card {
+    margin-top: 100px;
+    width: 500px;
+}
+
+mat-card-header {
+    margin-bottom: 20px;
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+a {
+    float: right;
+}

@@ -1,27 +1,27 @@
-# TTADSTrabajoFinal
+# Sistema de gestión de Horario Docente
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
+_Trabajo final_
 
-## Development server
+![Mi Gestión de Horario Docente](https://i.ibb.co/MfkcMZq/Mi-Gestion-HD.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#### Materia: Técnicas y Tecnologías Avanzadas de Desarrollo de Software
 
-## Code scaffolding
+#### Docentes:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Meca, Adrián
+- Otaduy, Andres
 
-## Build
+#### Integrantes:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Arnold, Joel (Leg. 34.392)
 
-## Running unit tests
+#### Tecnologías/técnicas/herramientas utilizadas al momento:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [x] Angular
+- [ ] Bootstrap
+- [ ] Font-Awesome
+- [ ] Node
+- [ ] Express
+- [ ] MongoDB
+- [ ] Mongoose
+- [ ] Pruebas unitarias

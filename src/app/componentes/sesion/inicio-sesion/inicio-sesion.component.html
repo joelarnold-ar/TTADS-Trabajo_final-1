@@ -1,0 +1,52 @@
+<mat-card class="animated fadeInLeft">
+
+    <!-- ENCABEZADO -->
+    <mat-card-header>
+        <img mat-card-avatar src="../../../../assets/img/icono-escuela.png" alt="No hay imagen">
+        <mat-card-title>
+            Inicio de sesión
+        </mat-card-title>
+        <mat-card-subtitle>
+            Ingrese el correo con el que se registró y su contraseña
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <!-- CONTENIDO -->
+    <mat-card-content>
+
+        <form [formGroup]="formulario" (ngSubmit)="inicioDeSesion()">
+
+            <!-- CORREO ELECTRÓNICO -->
+            <mat-form-field appearance="outline">
+                <mat-label>Ingresá tu correo</mat-label>
+                <input matInput formControlName="correoElectronico">
+                <mat-error>Correo electrónico inválido</mat-error>
+            </mat-form-field>
+
+            <!-- CONTRASEÑA -->
+            <mat-form-field appearance="outline">
+                <mat-label>Ingresá tu contraseña</mat-label>
+                <input matInput [type]="ocultarContra ? 'password' : 'text'" formControlName="contrasena">
+                <button mat-icon-button matSuffix (click)="ocultarContra = !ocultarContra" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="ocultarContra" type="button">
+                    <mat-icon>{{ocultarContra ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error>La contraseña debe tener al menos 6 caracteres</mat-error>
+            </mat-form-field>
+
+            <!-- PIE DEL FORMULARIO -->
+            <mat-checkbox formControlName="mantenerSesion">Mantener sesión iniciada
+            </mat-checkbox>
+            <a routerLink="/registro">¿No tenés cuenta?</a>
+
+
+            <!-- BOTÓN INGRESAR -->
+
+            <button id="botonIngresar" mat-button>
+                <mat-icon>login</mat-icon> &nbsp;&nbsp; Ingresar
+            </button>
+
+
+        </form>
+    </mat-card-content>
+
+</mat-card>
