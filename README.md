@@ -1,6 +1,4 @@
-# Sistema de gestión de Horario Docente
-
-_Trabajo final_
+# Sistema de gestión de Horario Docente (_Trabajo final TTADS_)
 
 ![Mi Gestión de Horario Docente](https://i.ibb.co/MfkcMZq/Mi-Gestion-HD.png)
 
@@ -18,8 +16,10 @@ _Trabajo final_
 #### Tecnologías/técnicas/herramientas utilizadas al momento:
 
 - [x] Angular
-- [ ] Bootstrap
-- [ ] Font-Awesome
+- [x] Angular Material
+- [x] Bootstrap 5
+- [x] Firebase Authentication
+- [x] Font-Awesome
 - [ ] Node
 - [ ] Express
 - [ ] MongoDB

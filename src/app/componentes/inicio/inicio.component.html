@@ -1,1 +1,43 @@
-<p>inicio works!</p>
+<mat-card>
+
+    <img mat-card-image src="../../../assets/img/fondoInicio.jpg" alt="No se encontró imagen">
+    <div class="textoFlotante">
+        <h2>E.E.S. Orientada Part. Inc. Nro 8043 "Pedro J. Cristia"</h2>
+        <h4>Cód. Jurisdiccional: 3308043 / CUE: 8203180-00</h4>
+    </div>
+
+    <mat-card-content>
+        <!-- ACÁ PUEDE IR ALGO DE CONTENIDO EXTRA EN LA TARJETA -->
+    </mat-card-content>
+
+    <!-- FILAS ACORDEÓN -->
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="opcionMenu === 0" (opened)="fijarOpcion(0)" hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Información general
+                </mat-panel-title>
+                <mat-panel-description>
+                    <br>
+                    <mat-icon>info</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="opcionMenu === 1" (opened)="fijarOpcion(1)" hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Autoridades
+                </mat-panel-title>
+                <mat-panel-description>
+                    <br>
+                    <mat-icon>groups</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+        </mat-expansion-panel>
+
+    </mat-accordion>
+
+</mat-card>

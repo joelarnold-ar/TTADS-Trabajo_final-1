@@ -1,1 +1,21 @@
-<div class="bg-dark text-white animated fadeInLeft p-5">DIV DE PRUEBA</div>
+<app-barra-navegacion></app-barra-navegacion>
+
+<mat-sidenav-container class="contenedor">
+
+    <!-- Esta es el menu del costado -->
+    <mat-sidenav class="menuLateral" mode="side" [hidden]="!this.habilitarMenu" [(opened)]="mostrarMenu">
+        <app-menu-lateral></app-menu-lateral>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+        <!-- Este es el botón que oculta o muestra el menú lateral -->
+        <p id="botonMenu" (click)="manejarMenu()" [hidden]="!this.habilitarMenu">
+            <mat-icon class="bg-dark text-light">{{iconoMostrar}}</mat-icon>
+        </p>
+
+        <!-- Acá se renderizan los componentes navegables configurados en el "routing" -->
+        <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

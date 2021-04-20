@@ -1,0 +1,25 @@
+mat-list-option {
+    font-size: small !important;
+}
+
+#datosEscuela {
+    padding: 10px 10px;
+    background-image: linear-gradient(to top right, grey, rgb(202, 202, 202));
+}
+
+#imgEscuela {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+img:focus {
+    outline: none;
+}
+
+#imgSantaFe {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}

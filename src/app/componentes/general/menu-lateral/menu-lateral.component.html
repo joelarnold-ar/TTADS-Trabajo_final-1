@@ -1,0 +1,52 @@
+<!-- SECCION CON DATOS DE LA ESCUELA -->
+<div id="datosEscuela">
+    <img id="imgEscuela" src="../../../../assets/img/icono-escuela.png" alt="Falta icono escuela" height="50" width="50" routerLink="inicio">
+    <br><br>
+    <p class="text-dark">
+        <b>E.E.S.O.P.I. Nº 8043 "Pedro J. Cristia"</b>
+        <br> <small>CUE: 8203180-00</small>
+    </p>
+</div>
+
+<!-- LISTA DE OPCIONES DEL MENU -->
+<mat-selection-list [multiple]="false">
+    <mat-list-option routerLink='inicio'>
+        <mat-icon matListIcon>home</mat-icon>
+        <h3 matLine> Inicio </h3>
+    </mat-list-option>
+    <mat-list-option routerLink='horarioConsolidado'>
+        <mat-icon matListIcon>grid_on</mat-icon>
+        <h3 matLine> Horario consolidado </h3>
+    </mat-list-option>
+    <mat-list-option routerLink='suplencias'>
+        <mat-icon matListIcon>compare_arrows</mat-icon>
+        <h3 matLine> Suplencias </h3>
+    </mat-list-option>
+    <mat-list-option routerLink='cambioHorario'>
+        <mat-icon matListIcon>change_circle</mat-icon>
+        <h3 matLine> Cambios de horario </h3>
+    </mat-list-option>
+    <mat-list-option routerLink='docentes'>
+        <mat-icon matListIcon>assignment_ind</mat-icon>
+        <h3 matLine> Docentes </h3>
+    </mat-list-option>
+    <mat-list-option routerLink='escuelas'>
+        <mat-icon matListIcon>school</mat-icon>
+        <h3 matLine> Escuelas </h3>
+    </mat-list-option>
+    <mat-list-option routerLink='materias'>
+        <mat-icon matListIcon>assignment</mat-icon>
+        <h3 matLine> Materias </h3>
+    </mat-list-option>
+    <mat-list-option routerLink='cursos'>
+        <mat-icon matListIcon>class</mat-icon>
+        <h3 matLine> Cursos </h3>
+    </mat-list-option>
+</mat-selection-list>
+
+<!-- LOGO SANTA FE -->
+<div id="imgSantaFe">
+    <a href="http://www.santafe.gob.ar/" target="_blank">
+        <img src="../../../../assets/img/logo-provincia.jpg" alt="Falta logo" width="100" height="60">
+    </a>
+</div>

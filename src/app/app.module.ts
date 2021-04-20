@@ -11,6 +11,8 @@ import { AngularMaterialModule } from './compartido/angular-material.module';
 import { InicioSesionComponent } from './componentes/sesion/inicio-sesion/inicio-sesion.component';
 import { RegistroUsuarioComponent } from './componentes/sesion/registro-usuario/registro-usuario.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
+import { BarraNavegacionComponent } from './componentes/general/barra-navegacion/barra-navegacion.component';
+import { MenuLateralComponent } from './componentes/general/menu-lateral/menu-lateral.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
     InicioComponent,
     InicioSesionComponent,
     RegistroUsuarioComponent,
+    BarraNavegacionComponent,
+    MenuLateralComponent,
   ],
   imports: [
     BrowserModule,

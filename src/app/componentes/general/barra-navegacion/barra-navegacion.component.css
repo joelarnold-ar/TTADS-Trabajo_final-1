@@ -1,0 +1,20 @@
+#text-dark {
+    cursor: auto;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+button {
+    cursor: pointer;
+    color: black;
+}
+
+mat-toolbar {
+    height: 55px;
+}
+
+img:focus {
+    outline: none;
+}
