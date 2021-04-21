@@ -9,6 +9,7 @@ import { SesionIniciadaGuard } from './compartido/sesionIniciada.guard';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { InicioSesionComponent } from './componentes/sesion/inicio-sesion/inicio-sesion.component';
 import { RegistroUsuarioComponent } from './componentes/sesion/registro-usuario/registro-usuario.component';
+import { PerfilUsuarioComponent } from './componentes/sesion/perfil-usuario/perfil-usuario.component';
 
 const RUTAS: Routes = [
   { path: '', component: InicioSesionComponent },
@@ -25,6 +26,11 @@ const RUTAS: Routes = [
   {
     path: 'inicio',
     component: InicioComponent,
+    canActivate: [NoInicioSesionGuard],
+  },
+  {
+    path: 'perfil',
+    component: PerfilUsuarioComponent,
     canActivate: [NoInicioSesionGuard],
   },
 ];

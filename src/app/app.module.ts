@@ -13,6 +13,7 @@ import { RegistroUsuarioComponent } from './componentes/sesion/registro-usuario/
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { BarraNavegacionComponent } from './componentes/general/barra-navegacion/barra-navegacion.component';
 import { MenuLateralComponent } from './componentes/general/menu-lateral/menu-lateral.component';
+import { PerfilUsuarioComponent } from './componentes/sesion/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MenuLateralComponent } from './componentes/general/menu-lateral/menu-la
     RegistroUsuarioComponent,
     BarraNavegacionComponent,
     MenuLateralComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
     BrowserModule,

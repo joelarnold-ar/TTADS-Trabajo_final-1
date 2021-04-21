@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-title>PERFIL DEL USUARIO</mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-header>
+        <mat-list role="list">
+            <mat-list-item role="listitem">
+                <mat-icon mat-list-icon>person</mat-icon>
+                <div mat-line style="font-weight: bold;">NOMBRE DEL USUARIO</div>
+                <div mat-line>{{this.nombreUsuario}}</div>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+                <mat-icon mat-list-icon>contact_mail</mat-icon>
+                <div mat-line style="font-weight: bold;">CORREO ELECTRÓNICO</div>
+                <div mat-line>{{this.correoElectronico}}</div>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+                <mat-icon mat-list-icon>fact_check</mat-icon>
+                <div mat-line style="font-weight: bold;">ID DE USUARIO</div>
+                <div mat-line>{{this.idUsuario}}</div>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+                <mat-icon mat-list-icon>trending_down</mat-icon>
+                <div mat-line style="font-weight: bold;">SESIÓN EXPIRA</div>
+                <div mat-line *ngIf="!this.sesionExpira;else cuandoExpira">Nunca</div>
+                <ng-template #cuandoExpira>
+                    <div mat-line>{{this.horaExpira | date:'dd/MM/yyyy - HH:mm'}}</div>
+                </ng-template>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+                <mat-icon mat-list-icon>generating_tokens</mat-icon>
+                <div mat-line style="font-weight: bold;">TOKEN DE LA SESIÓN</div>
+                <div mat-line>{{this.token}}</div>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-header>
+
+    <mat-card-content>
+        <!-- ACÁ PUEDE IR ALGO DE CONTENIDO EXTRA EN LA TARJETA -->
+    </mat-card-content>
+
+</mat-card>
