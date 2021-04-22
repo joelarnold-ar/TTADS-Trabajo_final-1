@@ -4,10 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 
 // ? Componentes
 import { ModeloDocente } from '../../../modelos/docente.model';
-import { DocentesService } from '../../../servicios/docentes.service';
-import { NuevoDocenteComponent } from '../nuevo-docente/nuevo-docente.component';
-import { ConfirmarEliminarDocenteComponent } from '../confirmar-eliminar-docente/confirmar-eliminar-docente.component';
-import { MensajeroService } from '../../../servicios/mensajero.service';
 
 @Component({
   selector: 'app-docentes',
@@ -25,12 +21,7 @@ export class DocentesPrincipalComponent implements OnInit {
   marcadorEliminando: boolean = false;
   hayDatos: boolean = false;
 
-  constructor(
-    private servicioDocentes: DocentesService,
-    private fb: FormBuilder,
-    public dialog: MatDialog,
-    private servicioMensajero: MensajeroService
-  ) {}
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.docente = new ModeloDocente();
@@ -94,25 +85,6 @@ export class DocentesPrincipalComponent implements OnInit {
   buscarDocente() {
     if (this.formularioBusqueda.valid && this.formularioBusqueda.dirty) {
       this.marcadorBuscando = true;
-      this.servicioDocentes
-        .buscarUno(this.formularioBusqueda.get('dniBuscado').value)
-        .subscribe(
-          (datos) => {
-            if (datos.length > 0) {
-              this.mapearAFormulario(datos);
-              this.marcadorBuscando = false;
-              this.hayDatos = true;
-              this.formulario.disable();
-            } else {
-              this.servicioMensajero.mostrarMensaje(11);
-              this.marcadorBuscando = false;
-            }
-          },
-          (error) => {
-            this.marcadorBuscando = false;
-            this.servicioMensajero.mostrarMensaje(10);
-          }
-        );
     }
   }
 }

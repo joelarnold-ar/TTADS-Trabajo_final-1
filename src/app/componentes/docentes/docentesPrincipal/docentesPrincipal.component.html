@@ -19,13 +19,13 @@
             </div>
         </form>
         <!-- BOTON AGREGAR -->
-        <button mat-mini-fab id="botonAgregar" (click)="altaDocente()">
+        <button mat-mini-fab id="botonAgregar">
             <mat-icon id="iconoAgregar">add</mat-icon>
         </button>
     </div>
 
     <!-- FORMULARIO DOCENTE -->
-    <form [formGroup]="formulario" (submit)="this.editarDocente()" id="formulario">
+    <form [formGroup]="formulario" (submit)="''" id="formulario">
         <div class="renglon">
             <!-- DNI DEL DOCENTE -->
             <mat-form-field id="dni">
@@ -35,11 +35,11 @@
 
             <div id="controles" *ngIf="this.hayDatos">
                 <!-- BOTON EDITAR -->
-                <button mat-raised-button (click)="this.habilitarFormulario()" class="bg-warning text-dark" type="button">
+                <button mat-raised-button class="bg-warning text-dark" type="button">
                     <mat-icon>edit</mat-icon>
                 </button>
                 <!-- BOTON ELIMINAR -->
-                <button mat-raised-button (click)="this.eliminarDocente()" class="bg-danger text-white" type="button">
+                <button mat-raised-button class="bg-danger text-white" type="button">
                     <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorEliminando"></i>
                     <mat-icon *ngIf="!this.marcadorEliminando">delete</mat-icon>
                 </button>
