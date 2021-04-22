@@ -1,0 +1,98 @@
+<mat-card>
+    <mat-card-title>Gestión de Docentes</mat-card-title>
+
+
+    <!-- CAJA DE BUSQUEDA Y ACCIONES -->
+    <div id="renglonBusqueda">
+        <form [formGroup]="formularioBusqueda" (submit)="(this.formularioBusqueda.valid && !this.formularioBusqueda.pristine && this.formularioBusqueda.touched) ? this.buscarDocente() : ''">
+            <div id="buscador">
+                <!-- BUSQUEDA POR DNI -->
+                <mat-form-field>
+                    <mat-label>Buscar docente</mat-label>
+                    <input matInput type="text" placeholder="Ingresá el DNI" formControlName="dniBuscado" (keydown.enter)="this.buscarDocente()">
+                    <button mat-button *ngIf="formularioBusqueda.get('dniBuscado').value" matSuffix mat-icon-button aria-label="Limpiar" (click)="limpiarFormulario()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <mat-error>Ingresá un DNI válido</mat-error>
+                </mat-form-field>
+
+            </div>
+        </form>
+        <!-- BOTON AGREGAR -->
+        <button mat-mini-fab id="botonAgregar" (click)="altaDocente()">
+            <mat-icon id="iconoAgregar">add</mat-icon>
+        </button>
+    </div>
+
+    <!-- FORMULARIO DOCENTE -->
+    <form [formGroup]="formulario" (submit)="this.editarDocente()" id="formulario">
+        <div class="renglon">
+            <!-- DNI DEL DOCENTE -->
+            <mat-form-field id="dni">
+                <mat-label>D.N.I.</mat-label>
+                <input type="text" matInput formControlName="dni">
+            </mat-form-field>
+
+            <div id="controles" *ngIf="this.hayDatos">
+                <!-- BOTON EDITAR -->
+                <button mat-raised-button (click)="this.habilitarFormulario()" class="bg-warning text-dark" type="button">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <!-- BOTON ELIMINAR -->
+                <button mat-raised-button (click)="this.eliminarDocente()" class="bg-danger text-white" type="button">
+                    <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorEliminando"></i>
+                    <mat-icon *ngIf="!this.marcadorEliminando">delete</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="renglon">
+            <!-- APELLIDO DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input type="text" matInput formControlName="apellido">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+
+            <!-- NOMBRE DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input type="text" matInput formControlName="nombre">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="renglon">
+            <!-- CORREO ELECTRÓNICO DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Correo electrónico</mat-label>
+                <input type="text" matInput formControlName="correoElectronico">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+
+            <!-- TELÉFONO DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Teléfono</mat-label>
+                <input type="text" matInput formControlName="telefonoFijo">
+            </mat-form-field>
+        </div>
+
+        <div class="renglon">
+            <!-- DIRECCIÓN DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Dirección</mat-label>
+                <input type="text" matInput formControlName="direccion">
+            </mat-form-field>
+
+            <!-- CELULAR DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Celular</mat-label>
+                <input type="text" matInput formControlName="celular">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </div>
+
+
+
+    </form>
+</mat-card>

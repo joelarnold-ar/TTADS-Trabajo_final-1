@@ -14,6 +14,9 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { BarraNavegacionComponent } from './componentes/general/barra-navegacion/barra-navegacion.component';
 import { MenuLateralComponent } from './componentes/general/menu-lateral/menu-lateral.component';
 import { PerfilUsuarioComponent } from './componentes/sesion/perfil-usuario/perfil-usuario.component';
+import { NuevoDocenteComponent } from './componentes/docentes/nuevo-docente/nuevo-docente.component';
+import { ConfirmarEliminarDocenteComponent } from './componentes/docentes/confirmar-eliminar-docente/confirmar-eliminar-docente.component';
+import { DocentesPrincipalComponent } from './componentes/docentes/docentesPrincipal/docentesPrincipal.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { PerfilUsuarioComponent } from './componentes/sesion/perfil-usuario/perf
     BarraNavegacionComponent,
     MenuLateralComponent,
     PerfilUsuarioComponent,
+    DocentesPrincipalComponent,
+    NuevoDocenteComponent,
+    ConfirmarEliminarDocenteComponent,
   ],
   imports: [
     BrowserModule,
