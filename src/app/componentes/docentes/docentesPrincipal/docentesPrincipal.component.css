@@ -1,0 +1,19 @@
+.mat-mini-fab {
+    margin-right: 25px;
+}
+
+.renglon {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+#formulario {
+    padding-left: 55%;
+    margin-top: 80px;
+}
+
+#renglonBusqueda {
+    justify-content: space-around;
+    margin-top: 50px;
+    height: 40px;
+}

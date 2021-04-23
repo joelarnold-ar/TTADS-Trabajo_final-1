@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 // ? Componentes
 import { ModeloDocente } from '../../../modelos/docente.model';
 import { NuevoDocenteComponent } from '../nuevo-docente/nuevo-docente.component';
+import { DocentesService } from '../../../servicios/docentes.service';
 
 @Component({
   selector: 'app-docentes',
@@ -20,7 +21,11 @@ export class DocentesPrincipalComponent implements OnInit {
   marcadorBuscando: boolean = false;
   hayDatos: boolean = false;
 
-  constructor(private fb: FormBuilder, public dialogo: MatDialog) {}
+  constructor(
+    private fb: FormBuilder,
+    public dialogo: MatDialog,
+    private servicioDocentes: DocentesService
+  ) {}
 
   ngOnInit() {
     this.docente = new ModeloDocente();
@@ -73,6 +78,23 @@ export class DocentesPrincipalComponent implements OnInit {
     this.hayDatos = false;
   }
 
+  private mapearADocente(): ModeloDocente {
+    this.docente = new ModeloDocente();
+
+    this.docente.id = this.idDocenteBuscado;
+    this.docente.dni = this.formulario.get('dni').value;
+    this.docente.nombre = this.formulario.get('nombre').value;
+    this.docente.apellido = this.formulario.get('apellido').value;
+    this.docente.correoElectronico = this.formulario.get(
+      'correoElectronico'
+    ).value;
+    this.docente.telefonoFijo = this.formulario.get('telefonoFijo').value;
+    this.docente.celular = this.formulario.get('celular').value;
+    this.docente.direccion = this.formulario.get('direccion').value;
+
+    return this.docente;
+  }
+
   buscarDocente() {
     if (this.formularioBusqueda.valid && this.formularioBusqueda.dirty) {
       this.marcadorBuscando = true;
@@ -86,5 +108,19 @@ export class DocentesPrincipalComponent implements OnInit {
       this.limpiarFormulario();
       // TODO Agregar mensaje y limpiar formulario
     });
+  }
+
+  editarDocente() {
+    this.formulario.markAllAsTouched();
+    if (this.formulario.valid) {
+      this.servicioDocentes.editarDocente(this.mapearADocente()).subscribe(
+        (datos) => {
+          this.formulario.disable();
+        },
+        (error) => {
+          // Agregar mensaje
+        }
+      );
+    }
   }
 }

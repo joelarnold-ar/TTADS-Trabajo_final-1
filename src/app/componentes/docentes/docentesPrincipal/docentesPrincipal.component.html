@@ -9,23 +9,28 @@
                 <!-- BUSQUEDA POR DNI -->
                 <mat-form-field>
                     <mat-label>Buscar docente</mat-label>
-                    <input matInput type="text" placeholder="Ingresá el DNI" formControlName="dniBuscado">
-                    <button mat-button matSuffix mat-icon-button aria-label="Limpiar" (click)="limpiarFormulario()">
+                    <input matInput type="text" placeholder="Ingresá el DNI" formControlName="dniBuscado" (keydown.enter)="this.buscarDocente()">
+                    <button mat-button *ngIf="formularioBusqueda.get('dniBuscado').value" matSuffix mat-icon-button aria-label="Limpiar" (click)="limpiarFormulario()">
                         <mat-icon>close</mat-icon>
                     </button>
                     <mat-error>Ingresá un DNI válido</mat-error>
                 </mat-form-field>
-
+                <!-- BOTON BUSCAR -->
+                <button id="botonBusqueda" mat-raised-button type="submit">
+                    <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorBuscando"></i>
+                    <mat-icon *ngIf="!this.marcadorBuscando">manage_search</mat-icon>
+                    Buscar
+                </button>
             </div>
         </form>
         <!-- BOTON AGREGAR -->
-        <button mat-mini-fab id="botonAgregar">
+        <button mat-mini-fab id="botonAgregar" (click)="altaDocente()">
             <mat-icon id="iconoAgregar">add</mat-icon>
         </button>
     </div>
 
     <!-- FORMULARIO DOCENTE -->
-    <form [formGroup]="formulario" (submit)="''" id="formulario">
+    <form [formGroup]="formulario" (submit)="this.editarDocente()" id="formulario">
         <div class="renglon">
             <!-- DNI DEL DOCENTE -->
             <mat-form-field id="dni">
