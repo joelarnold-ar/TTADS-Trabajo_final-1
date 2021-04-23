@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 // ? Componentes
 import { ModeloDocente } from '../../../modelos/docente.model';
+import { NuevoDocenteComponent } from '../nuevo-docente/nuevo-docente.component';
 
 @Component({
   selector: 'app-docentes',
@@ -17,11 +18,9 @@ export class DocentesPrincipalComponent implements OnInit {
   docente: ModeloDocente;
   idDocenteBuscado: number;
   marcadorBuscando: boolean = false;
-  marcadorEditando: boolean = false;
-  marcadorEliminando: boolean = false;
   hayDatos: boolean = false;
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) {}
+  constructor(private fb: FormBuilder, public dialogo: MatDialog) {}
 
   ngOnInit() {
     this.docente = new ModeloDocente();
@@ -34,16 +33,10 @@ export class DocentesPrincipalComponent implements OnInit {
       "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
 
     this.formulario = this.fb.group({
-      dni: [
-        '',
-        [Validators.required, Validators.minLength(6), Validators.maxLength(8)],
-      ],
+      dni: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
       nombre: ['', [Validators.required]],
-      correoElectronico: [
-        '',
-        [Validators.required, Validators.pattern(expRegCorreo)],
-      ],
+      correoElectronico: ['', [Validators.required]],
       telefonoFijo: [''],
       celular: ['', [Validators.required]],
       direccion: [''],
@@ -61,22 +54,20 @@ export class DocentesPrincipalComponent implements OnInit {
   }
 
   private mapearAFormulario(datos: Object) {
-    this.idDocenteBuscado = Number(datos[0]['id']);
+    this.idDocenteBuscado = Number(datos['id']);
     this.formulario.reset({
-      dni: datos[0]['dni'],
-      apellido: datos[0]['apellido'],
-      nombre: datos[0]['nombre'],
-      correoElectronico: datos[0]['correoElectronico'],
-      telefonoFijo: datos[0]['telefonoFijo'],
-      celular: datos[0]['celular'],
-      direccion: datos[0]['direccion'],
+      dni: datos['dni'],
+      apellido: datos['apellido'],
+      nombre: datos['nombre'],
+      correoElectronico: datos['correoElectronico'],
+      telefonoFijo: datos['telefonoFijo'],
+      celular: datos['celular'],
+      direccion: datos['direccion'],
     });
   }
 
   limpiarFormulario() {
     this.formularioBusqueda.reset();
-    this.formularioBusqueda.get('dniBuscado').setErrors(null);
-    this.formulario.reset();
     this.formulario.disable();
     this.docente = undefined;
     this.hayDatos = false;
@@ -86,5 +77,14 @@ export class DocentesPrincipalComponent implements OnInit {
     if (this.formularioBusqueda.valid && this.formularioBusqueda.dirty) {
       this.marcadorBuscando = true;
     }
+  }
+
+  altaDocente() {
+    const ventanaNuevoDocente = this.dialogo.open(NuevoDocenteComponent);
+
+    ventanaNuevoDocente.afterClosed().subscribe((result) => {
+      this.limpiarFormulario();
+      // TODO Agregar mensaje y limpiar formulario
+    });
   }
 }

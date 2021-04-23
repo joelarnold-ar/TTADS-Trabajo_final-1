@@ -1,0 +1,33 @@
+.mat-mini-fab {
+    margin-right: 15px;
+}
+
+.renglon {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+#formulario {
+    padding-left: 25%;
+    padding-right: 25%;
+    margin-top: 85px;
+}
+
+#renglonBusqueda {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 35px;
+    height: 35px;
+}
+
+#botonBusqueda {
+    background-color: rgb(83, 22, 22);
+    color: rgb(0, 0, 0);
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+button {
+    margin-right: 15px;
+}

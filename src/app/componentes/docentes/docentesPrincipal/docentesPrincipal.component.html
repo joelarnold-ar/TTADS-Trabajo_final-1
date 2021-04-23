@@ -9,8 +9,8 @@
                 <!-- BUSQUEDA POR DNI -->
                 <mat-form-field>
                     <mat-label>Buscar docente</mat-label>
-                    <input matInput type="text" placeholder="Ingresá el DNI" formControlName="dniBuscado" (keydown.enter)="this.buscarDocente()">
-                    <button mat-button *ngIf="formularioBusqueda.get('dniBuscado').value" matSuffix mat-icon-button aria-label="Limpiar" (click)="limpiarFormulario()">
+                    <input matInput type="text" placeholder="Ingresá el DNI" formControlName="dniBuscado">
+                    <button mat-button matSuffix mat-icon-button aria-label="Limpiar" (click)="limpiarFormulario()">
                         <mat-icon>close</mat-icon>
                     </button>
                     <mat-error>Ingresá un DNI válido</mat-error>
@@ -40,8 +40,8 @@
                 </button>
                 <!-- BOTON ELIMINAR -->
                 <button mat-raised-button class="bg-danger text-white" type="button">
-                    <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorEliminando"></i>
-                    <mat-icon *ngIf="!this.marcadorEliminando">delete</mat-icon>
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <mat-icon>delete</mat-icon>
                 </button>
             </div>
         </div>
