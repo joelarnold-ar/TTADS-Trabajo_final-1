@@ -1,1 +1,70 @@
-<p>nuevo-docente works!</p>
+<h2 mat-dialog-title>Agregar nuevo docente</h2>
+
+<mat-dialog-content class="mat-typography">
+
+    <!-- FORMULARIO DE ALTA -->
+    <form [formGroup]="formularioAlta" id="formulario">
+        <div class="renglon1">
+            <!-- DNI DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>D.N.I.</mat-label>
+                <input type="text" matInput formControlName="dni">
+                <mat-error>Ingresá entre 6 y 8 caracteres.</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="renglon2">
+            <!-- APELLIDO DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input type="text" matInput formControlName="apellido">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+
+            <!-- NOMBRE DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input type="text" matInput formControlName="nombre">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="renglon2">
+            <!-- CORREO ELECTRÓNICO DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Correo electrónico</mat-label>
+                <input type="text" matInput formControlName="correoElectronico">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+
+            <!-- TELÉFONO DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Teléfono</mat-label>
+                <input type="text" matInput formControlName="telefonoFijo">
+            </mat-form-field>
+        </div>
+
+        <div class="renglon2">
+            <!-- DIRECCIÓN DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Dirección</mat-label>
+                <input type="text" matInput formControlName="direccion">
+            </mat-form-field>
+
+            <!-- CELULAR DEL DOCENTE -->
+            <mat-form-field>
+                <mat-label>Celular</mat-label>
+                <input type="text" matInput formControlName="celular">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button (click)="this.ventanaEmergente.close()">Cancelar</button>
+    <button mat-raised-button (click)="nuevoDocente()" class="bg-success"><i class="fas fa-spinner fa-spin"
+            *ngIf="this.accionAlta"></i>
+        Agregar
+    </button>
+</mat-dialog-actions>

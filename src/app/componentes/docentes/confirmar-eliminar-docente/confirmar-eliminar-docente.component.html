@@ -1,1 +1,8 @@
-<p>confirmar-eliminar-docente works!</p>
+<mat-dialog-content class="mat-typography">
+    <p><b>¿Confirma la eliminación del docente?</b></p>
+    <p><small>¡Esta acción no se puede deshacer!</small></p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="this.referenciaVentana.close()">Cancelar</button>
+    <button mat-button color="warn" [mat-dialog-close]=true cdkFocusInitial>Si, eliminar</button>
+</mat-dialog-actions>

@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-title>Gestión de Docentes</mat-card-title>
-
+    <mat-divider></mat-divider>
 
     <!-- CAJA DE BUSQUEDA Y ACCIONES -->
     <div id="renglonBusqueda">
@@ -40,13 +40,13 @@
 
             <div id="controles" *ngIf="this.hayDatos">
                 <!-- BOTON EDITAR -->
-                <button mat-raised-button class="bg-warning text-dark" type="button">
+                <button mat-raised-button (click)="this.habilitarFormulario()" class="bg-warning text-dark" type="button">
                     <mat-icon>edit</mat-icon>
                 </button>
                 <!-- BOTON ELIMINAR -->
-                <button mat-raised-button class="bg-danger text-white" type="button">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <mat-icon>delete</mat-icon>
+                <button mat-raised-button (click)="this.eliminarDocente()" class="bg-danger text-white" type="button">
+                    <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorEliminando"></i>
+                    <mat-icon *ngIf="!this.marcadorEliminando">delete</mat-icon>
                 </button>
             </div>
         </div>
@@ -97,7 +97,13 @@
             </mat-form-field>
         </div>
 
-
+        <!-- BOTONES CANCELAR Y GUARDAR -->
+        <div class="text-center">
+            <button mat-raised-button *ngIf="this.formulario.enabled && this.hayDatos" class="bg-secondary text-dark mr-2" (click)="this.formulario.disable()">Cancelar</button> &nbsp;&nbsp;&nbsp;
+            <button mat-raised-button *ngIf="this.formulario.enabled && this.hayDatos" class="bg-success text-dark ml-2" type="submit">
+                <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorEditando"></i> Guardar cambios
+            </button>
+        </div>
 
     </form>
 </mat-card>

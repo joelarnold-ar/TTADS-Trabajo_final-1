@@ -1,33 +1,17 @@
-.mat-mini-fab {
-    margin-right: 15px;
+.renglon1 {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 10px;
+    margin-left: 35px;
 }
 
-.renglon {
+.renglon2 {
+    width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 #formulario {
-    padding-left: 25%;
-    padding-right: 25%;
-    margin-top: 85px;
-}
-
-#renglonBusqueda {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 35px;
-    height: 35px;
-}
-
-#botonBusqueda {
-    background-color: rgb(83, 22, 22);
-    color: rgb(0, 0, 0);
-    margin-top: 30px;
-    margin-left: 40px;
-}
-
-button {
-    margin-right: 15px;
+    width: 500px;
 }
