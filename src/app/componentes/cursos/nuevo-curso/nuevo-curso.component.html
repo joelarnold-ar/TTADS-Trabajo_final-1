@@ -1,0 +1,61 @@
+<h2 mat-dialog-title>Agregar nueva materia</h2>
+
+<mat-dialog-content class="mat-typography">
+
+    <!-- FORMULARIO DE ALTA -->
+    <form [formGroup]="formularioAlta" id="formulario">
+        <div class="renglon">
+            <!-- AÑO DE CURSADO -->
+            <mat-form-field>
+                <mat-label>Año</mat-label>
+                <mat-select formControlName="ano">
+                    <mat-option></mat-option>
+                    <mat-option value="1">1º año</mat-option>
+                    <mat-option value="2">2º año</mat-option>
+                    <mat-option value="3">3º año</mat-option>
+                    <mat-option value="4">4º año</mat-option>
+                    <mat-option value="5">5º año</mat-option>
+                    <mat-option value="6">6º año</mat-option>
+                </mat-select>
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </div>
+
+
+        <div class="renglon">
+            <!-- DIVISIÓN -->
+            <mat-form-field>
+                <mat-label>División</mat-label>
+                <mat-select formControlName="division">
+                    <mat-option></mat-option>
+                    <mat-option value="A">A</mat-option>
+                    <mat-option value="B">B</mat-option>
+                    <mat-option value="C">C</mat-option>
+                    <mat-option value="D">D</mat-option>
+                    <mat-option value="E">E</mat-option>
+                </mat-select>
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+
+            <!-- TURNO -->
+            <mat-form-field>
+                <mat-label>Turno</mat-label>
+                <mat-select formControlName="turno">
+                    <mat-option></mat-option>
+                    <mat-option value="M">Mañana</mat-option>
+                    <mat-option value="T">Tarde</mat-option>
+                    <mat-option value="N">Noche</mat-option>
+                </mat-select>
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button (click)="this.cerrarVentana()">Cancelar</button>
+    <button mat-raised-button (click)="nuevoCurso()" class="bg-success"><i class="fas fa-spinner fa-spin"
+            *ngIf="this.accionAlta"></i>
+        Agregar
+    </button>
+</mat-dialog-actions>

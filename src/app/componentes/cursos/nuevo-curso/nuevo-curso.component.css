@@ -1,0 +1,25 @@
+.renglon {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.renglonDetalle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#formulario {
+    width: 400px;
+}
+
+#descripcion {
+    width: 100%;
+}
+
+#electiva {
+    width: 38%;
+    padding-top: 3%;
+}

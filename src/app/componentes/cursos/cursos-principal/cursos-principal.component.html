@@ -1,0 +1,51 @@
+<mat-card>
+    <mat-card-title>Gestión de Cursos</mat-card-title>
+    <mat-divider></mat-divider>
+
+    <!-- CAJA DE BUSQUEDA Y ACCIONES -->
+    <h3 id="titulo">Buscar cursos</h3>
+    <div id="renglonBusqueda">
+        <form [formGroup]="formularioBusqueda" (submit)="(this.formularioBusqueda.valid && !this.formularioBusqueda.pristine && this.formularioBusqueda.touched) ? this.buscarCursos() : ''">
+            <div id="buscador">
+                <!-- BUSQUEDA POR TURNO -->
+                <mat-form-field>
+                    <mat-label>Turno</mat-label>
+                    <mat-select formControlName="turno">
+                        <mat-option></mat-option>
+                        <mat-option value="M">Mañana</mat-option>
+                        <mat-option value="T">Tarde</mat-option>
+                        <mat-option value="N">Noche</mat-option>
+                    </mat-select>
+                    <mat-error>Campo obligatorio</mat-error>
+                </mat-form-field>
+                <!-- BOTON BUSCAR -->
+                <button id="botonBusqueda" mat-raised-button type="submit">
+                    <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorBuscando"></i>
+                    <mat-icon *ngIf="!this.marcadorBuscando">manage_search</mat-icon>
+                    Buscar
+                </button>
+            </div>
+        </form>
+        <!-- BOTON AGREGAR -->
+        <button mat-mini-fab id="botonAgregar" (click)="altaCurso()">
+            <mat-icon id="iconoAgregar">add</mat-icon>
+        </button>
+    </div>
+
+    <mat-card-content>
+        <mat-card-subtitle *ngIf="cursosEncontrados">
+            <b> Haga clic en un curso para editarlo o eliminarlo: </b>
+        </mat-card-subtitle>
+        <mat-action-list>
+            <button *ngFor="let curso of cursosEncontrados" mat-list-item (click)="editarEliminarCurso(curso)">
+                <b>
+                    Año: {{curso.ano}} - División: {{curso.division}} - Turno:
+                    <b *ngIf="curso.turno === 'M'">mañana</b>
+                    <b *ngIf="curso.turno === 'T'">tarde</b>
+                    <b *ngIf="curso.turno === 'N'">noche</b>
+                </b>
+            </button>
+        </mat-action-list>
+    </mat-card-content>
+
+</mat-card>

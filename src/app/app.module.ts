@@ -17,6 +17,10 @@ import { PerfilUsuarioComponent } from './componentes/sesion/perfil-usuario/perf
 import { NuevoDocenteComponent } from './componentes/docentes/nuevo-docente/nuevo-docente.component';
 import { ConfirmarEliminarDocenteComponent } from './componentes/docentes/confirmar-eliminar-docente/confirmar-eliminar-docente.component';
 import { DocentesPrincipalComponent } from './componentes/docentes/docentesPrincipal/docentesPrincipal.component';
+import { CursosPrincipalComponent } from './componentes/cursos/cursos-principal/cursos-principal.component';
+import { ConfirmaEliminarCursoComponent } from './componentes/cursos/confirma-eliminar-curso/confirma-eliminar-curso.component';
+import { EditarEliminarCursoComponent } from './componentes/cursos/editar-eliminar-curso/editar-eliminar-curso.component';
+import { NuevoCursoComponent } from './componentes/cursos/nuevo-curso/nuevo-curso.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,10 @@ import { DocentesPrincipalComponent } from './componentes/docentes/docentesPrinc
     DocentesPrincipalComponent,
     NuevoDocenteComponent,
     ConfirmarEliminarDocenteComponent,
+    CursosPrincipalComponent,
+    ConfirmaEliminarCursoComponent,
+    EditarEliminarCursoComponent,
+    NuevoCursoComponent,
   ],
   imports: [
     BrowserModule,
