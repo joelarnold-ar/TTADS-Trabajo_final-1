@@ -12,6 +12,7 @@ import { RegistroUsuarioComponent } from './componentes/sesion/registro-usuario/
 import { PerfilUsuarioComponent } from './componentes/sesion/perfil-usuario/perfil-usuario.component';
 import { DocentesPrincipalComponent } from './componentes/docentes/docentesPrincipal/docentesPrincipal.component';
 import { CursosPrincipalComponent } from './componentes/cursos/cursos-principal/cursos-principal.component';
+import { MateriaPrincipalComponent } from './componentes/materias/materia-principal/materia-principal.component';
 
 const RUTAS: Routes = [
   { path: '', component: InicioSesionComponent },
@@ -43,6 +44,11 @@ const RUTAS: Routes = [
   {
     path: 'cursos',
     component: CursosPrincipalComponent,
+    canActivate: [NoInicioSesionGuard],
+  },
+  {
+    path: 'materias',
+    component: MateriaPrincipalComponent,
     canActivate: [NoInicioSesionGuard],
   },
 ];

@@ -1,0 +1,28 @@
+#formulario {
+    padding-left: 20%;
+    padding-right: 20%;
+    margin-top: 50px;
+}
+
+#botonBusqueda {
+    background-color: rgb(192, 93, 93);
+    color: rgb(41, 117, 11);
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.mat-mini-fab {
+    margin-right: 15px;
+}
+
+#iconoAgregar {
+    width: 15px !important;
+    height: 15px !important;
+    font-size: 15px !important;
+    text-align: center;
+}
+
+#botonAgregar {
+    background-color: rgb(19, 18, 117);
+    color: rgb(255, 255, 255);
+}

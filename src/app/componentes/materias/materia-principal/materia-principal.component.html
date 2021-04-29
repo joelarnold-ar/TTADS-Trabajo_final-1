@@ -1,0 +1,94 @@
+<mat-card>
+    <mat-card-title>Gestión de Materias</mat-card-title>
+    <mat-divider></mat-divider>
+
+    <!-- CAJA DE BUSQUEDA Y ACCIONES -->
+    <div id="renglonBusqueda">
+        <form [formGroup]="formularioBusqueda">
+            <div id="buscador">
+
+                <!-- BUSQUEDA POR NOMBRE -->
+                <mat-form-field class="example-full-width">
+                    <mat-label>Buscar materia</mat-label>
+                    <input type="text" matInput formControlName="materiaBuscada" [matAutocomplete]="auto" placeholder="Ingresá parte del nombre">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option>
+                            <!-- Acá van las materias -->
+                        </mat-option>
+                    </mat-autocomplete>
+                    <mat-error>Ingresá al menos 3 caracteres</mat-error>
+                </mat-form-field>
+
+                <!-- BOTON BUSCAR -->
+                <button id="botonBusqueda" mat-raised-button type="button">
+                    <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorBuscando"></i>
+                    <mat-icon *ngIf="!this.marcadorBuscando">manage_search</mat-icon>
+                    Buscar
+                </button>
+            </div>
+        </form>
+        <!-- BOTON AGREGAR -->
+        <button mat-mini-fab id="botonAgregar">
+            <mat-icon id="iconoAgregar">add</mat-icon>
+        </button>
+    </div>
+
+    <!-- FORMULARIO MATERIAS -->
+    <form [formGroup]="formulario">
+        <div class="renglon">
+            <!-- ID DE LA MATERIA -->
+            <mat-form-field id="id">
+                <mat-label>ID de la materia</mat-label>
+                <input type="text" matInput formControlName="id">
+            </mat-form-field>
+
+            <div id="controles">
+                <!-- BOTON EDITAR -->
+                <button mat-raised-button class="bg-warning text-dark" type="button">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <!-- BOTON ELIMINAR -->
+                <button mat-raised-button class="bg-danger text-white" type="button">
+                    <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorEliminando"></i>
+                    <mat-icon *ngIf="!this.marcadorEliminando">delete</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="renglon">
+            <!-- NOMBRE DE LA MATERIA -->
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input type="text" matInput formControlName="nombre">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+
+            <!-- AÑO DE CURSADO -->
+            <mat-form-field>
+                <mat-label>Año de cursado</mat-label>
+                <mat-select formControlName="anoCursado">
+                    <!-- Acá van las opciones de año -->
+                </mat-select>
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </div>
+
+
+        <div class="renglon">
+            <!-- DESCRIPCIÓN DE LA MATERIA -->
+            <mat-form-field id="descripcion">
+                <mat-label>Descripción</mat-label>
+                <textarea type="text" matInput placeholder="Ingresá una descripción (opcional)" formControlName="descripcion"></textarea>
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </div>
+
+        <!-- BOTONES CANCELAR Y GUARDAR -->
+        <div class="text-center">
+            <button mat-raised-button *ngIf="this.formulario.enabled" class="bg-secondary text-dark mr-2">Cancelar</button>
+            <button mat-raised-button *ngIf="this.formulario.enabled" class="bg-success text-dark ml-2" type="submit">
+                Guarda cambios </button>
+        </div>
+
+    </form>
+</mat-card>

@@ -21,6 +21,8 @@ import { CursosPrincipalComponent } from './componentes/cursos/cursos-principal/
 import { ConfirmaEliminarCursoComponent } from './componentes/cursos/confirma-eliminar-curso/confirma-eliminar-curso.component';
 import { EditarEliminarCursoComponent } from './componentes/cursos/editar-eliminar-curso/editar-eliminar-curso.component';
 import { NuevoCursoComponent } from './componentes/cursos/nuevo-curso/nuevo-curso.component';
+import { MateriaPrincipalComponent } from './componentes/materias/materia-principal/materia-principal.component';
+import { NuevaMateriaComponent } from './componentes/materias/nueva-materia/nueva-materia.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { NuevoCursoComponent } from './componentes/cursos/nuevo-curso/nuevo-curs
     ConfirmaEliminarCursoComponent,
     EditarEliminarCursoComponent,
     NuevoCursoComponent,
+    MateriaPrincipalComponent,
+    NuevaMateriaComponent,
   ],
   imports: [
     BrowserModule,
