@@ -43,6 +43,56 @@ export class MensajeroService {
       case 17:
         mensaje = 'El docente se dio de alta correctamente.';
         break;
+      // * MENSAJES MODULO MATERIAS
+      case 20:
+        mensaje = '¡Algo falló al buscar la materia!';
+        break;
+      case 21:
+        mensaje = 'Ninguna materia coincide con el texto ingresado.';
+        break;
+      case 22:
+        mensaje = '¡Algo falló al dar de alta la materia!';
+        break;
+      case 23:
+        mensaje = '¡Algo falló al editar la materia!';
+        break;
+      case 24:
+        mensaje = '¡Algo falló al eliminar la materia!';
+        break;
+      case 25:
+        mensaje = 'La materia se eliminó correctamente.';
+        break;
+      case 26:
+        mensaje = 'La materia se editó correctamente.';
+        break;
+      case 27:
+        mensaje = 'La materia se dio de alta correctamente.';
+        break;
+      // * MENSAJES MODULO CURSOS
+      case 30:
+        mensaje = '¡Algo falló al buscar los cursos!';
+        break;
+      case 31:
+        mensaje = 'No se encontraron cursos';
+        break;
+      case 32:
+        mensaje = '¡Algo falló al dar de alta el curso!';
+        break;
+      case 33:
+        mensaje = '¡Algo falló al editar el curso!';
+        break;
+      case 34:
+        mensaje = '¡Algo falló al eliminar el curso!';
+        break;
+      case 35:
+        mensaje = 'El curso se eliminó correctamente.';
+        break;
+      case 36:
+        mensaje = 'El curso se editó correctamente.';
+        break;
+      case 37:
+        mensaje = 'El curso se dio de alta correctamente.';
+        break;
       default:
         mensaje = '¡Algo salió mal!';
         break;

@@ -1,28 +1,52 @@
-#formulario {
-    padding-left: 20%;
-    padding-right: 20%;
-    margin-top: 50px;
-}
-
-#botonBusqueda {
-    color: white;
-    background-color: black;
-    margin-top: 30px;
-    margin-left: 40px;
-}
-
 .mat-mini-fab {
     margin-right: 15px;
 }
 
-#iconoAgregar {
-    width: 15px !important;
-    height: 15px !important;
-    font-size: 15px !important;
-    text-align: center;
+.renglon {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#formulario {
+    padding-left: 22%;
+    padding-right: 22%;
+    margin-top: 80px;
+}
+
+#renglonBusqueda {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-left: 30%;
+    height: 40px;
+}
+
+#botonBusqueda {
+    background-color: rgb(199, 199, 199);
+    color: rgb(0, 0, 0);
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+#descripcion {
+    width: 85%;
 }
 
 #botonAgregar {
-    background-color: rgb(19, 18, 117);
-    color: rgb(255, 255, 255);
+    background-color: rgb(48, 180, 76);
+    color: rgb(46, 44, 44);
+}
+
+#iconoAgregar {
+    width: 25px !important;
+    height: 25px !important;
+    font-size: 25px !important;
+    font-weight: bolder;
+}
+
+button {
+    margin-right: 15px;
 }

@@ -1,1 +1,46 @@
-<p>nueva-materia works!</p>
+<h2 mat-dialog-title>Agregar nueva materia</h2>
+
+<mat-dialog-content class="mat-typography">
+
+    <!-- FORMULARIO DE ALTA -->
+    <form [formGroup]="formularioAlta" id="formulario">
+        <div class="renglon">
+            <!-- NOMBRE DE LA MATERIA -->
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input type="text" matInput formControlName="nombre">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+
+            <!-- AÑO DE CURSADO -->
+            <mat-form-field>
+                <mat-label>Año de cursado</mat-label>
+                <mat-select formControlName="anoCursado">
+                    <mat-option></mat-option>
+                    <mat-option value="1">1º año</mat-option>
+                    <mat-option value="2">2º año</mat-option>
+                    <mat-option value="3">3º año</mat-option>
+                    <mat-option value="4">4º año</mat-option>
+                    <mat-option value="5">5º año</mat-option>
+                </mat-select>
+                <mat-error>Opción obligatoria</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="renglonDetalle">
+            <!-- DESCRIPCIÓN MATERIA -->
+            <mat-form-field id="descripcion">
+                <mat-label>Descripción (opcional)</mat-label>
+                <textarea type="text" matInput formControlName="descripcion" placeholder="Ingresá una descripción"></textarea>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button (click)="this.ventanaEmergente.close()">Cancelar</button>
+    <button mat-raised-button (click)="nuevaMateria()" class="bg-success"><i class="fas fa-spinner fa-spin"
+            *ngIf="this.accionAlta"></i>
+        Agregar
+    </button>
+</mat-dialog-actions>

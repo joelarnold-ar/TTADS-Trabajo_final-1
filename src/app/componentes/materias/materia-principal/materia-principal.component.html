@@ -10,17 +10,17 @@
                 <!-- BUSQUEDA POR NOMBRE -->
                 <mat-form-field class="example-full-width">
                     <mat-label>Buscar materia</mat-label>
-                    <input type="text" matInput formControlName="materiaBuscada" [matAutocomplete]="auto" placeholder="Ingresá parte del nombre">
+                    <input type="text" matInput formControlName="materiaBuscada" [matAutocomplete]="auto" placeholder="Ingresá parte del nombre" (ngModelChange)="this.buscarMaterias()">
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                        <mat-option>
-                            <!-- Acá van las materias -->
+                        <mat-option *ngFor="let materia of materiasFiltradas" (onSelectionChange)="this.elegirMateria(materia)">
+                            {{materia.nombre}}
                         </mat-option>
                     </mat-autocomplete>
                     <mat-error>Ingresá al menos 3 caracteres</mat-error>
                 </mat-form-field>
 
                 <!-- BOTON BUSCAR -->
-                <button id="botonBusqueda" mat-raised-button type="button">
+                <button id="botonBusqueda" mat-raised-button type="button" (click)="this.buscarMaterias()">
                     <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorBuscando"></i>
                     <mat-icon *ngIf="!this.marcadorBuscando">manage_search</mat-icon>
                     Buscar
@@ -28,13 +28,13 @@
             </div>
         </form>
         <!-- BOTON AGREGAR -->
-        <button mat-mini-fab id="botonAgregar" (click)="abrirVentanaNueva()">
+        <button mat-mini-fab id="botonAgregar" (click)="altaMateria()">
             <mat-icon id="iconoAgregar">add</mat-icon>
         </button>
     </div>
 
     <!-- FORMULARIO MATERIAS -->
-    <form [formGroup]="formulario">
+    <form [formGroup]="formulario" (submit)="this.editarMateria()" id="formulario">
         <div class="renglon">
             <!-- ID DE LA MATERIA -->
             <mat-form-field id="id">
@@ -42,13 +42,13 @@
                 <input type="text" matInput formControlName="id">
             </mat-form-field>
 
-            <div id="controles">
+            <div id="controles" *ngIf="this.hayDatos">
                 <!-- BOTON EDITAR -->
-                <button mat-raised-button class="bg-warning text-dark" type="button">
+                <button mat-raised-button (click)="this.habilitarFormulario()" class="bg-warning text-dark" type="button">
                     <mat-icon>edit</mat-icon>
                 </button>
                 <!-- BOTON ELIMINAR -->
-                <button mat-raised-button class="bg-danger text-white" type="button">
+                <button mat-raised-button (click)="this.eliminarMateria()" class="bg-danger text-white" type="button">
                     <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorEliminando"></i>
                     <mat-icon *ngIf="!this.marcadorEliminando">delete</mat-icon>
                 </button>
@@ -67,7 +67,12 @@
             <mat-form-field>
                 <mat-label>Año de cursado</mat-label>
                 <mat-select formControlName="anoCursado">
-                    <!-- Acá van las opciones de año -->
+                    <mat-option></mat-option>
+                    <mat-option value="1">1º año</mat-option>
+                    <mat-option value="2">2º año</mat-option>
+                    <mat-option value="3">3º año</mat-option>
+                    <mat-option value="4">4º año</mat-option>
+                    <mat-option value="5">5º año</mat-option>
                 </mat-select>
                 <mat-error>Campo obligatorio</mat-error>
             </mat-form-field>
@@ -85,9 +90,10 @@
 
         <!-- BOTONES CANCELAR Y GUARDAR -->
         <div class="text-center">
-            <button mat-raised-button *ngIf="this.formulario.enabled" class="bg-secondary text-dark mr-2">Cancelar</button>
-            <button mat-raised-button *ngIf="this.formulario.enabled" class="bg-success text-dark ml-2" type="submit">
-                Guarda cambios </button>
+            <button mat-raised-button *ngIf="this.formulario.enabled && this.hayDatos" class="bg-secondary text-dark mr-2" (click)="this.formulario.disable()">Cancelar</button> &nbsp;&nbsp;&nbsp;
+            <button mat-raised-button *ngIf="this.formulario.enabled && this.hayDatos" class="bg-success text-dark ml-2" type="submit">
+                <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorEditando"></i> Guardar cambios
+            </button>
         </div>
 
     </form>
