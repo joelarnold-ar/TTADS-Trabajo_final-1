@@ -16,15 +16,13 @@
 #### Tecnologías/técnicas/herramientas utilizadas al momento:
 
 - [x] Angular
-- [x] Angular Material
-- [x] Bootstrap 5
 - [x] Firebase Authentication
+- [x] Bootstrap 5
+- [x] Angular Material
 - [x] Font-Awesome
+- [x] SweetAlert2
 - [ ] Node
 - [ ] Express
 - [ ] MongoDB
 - [ ] Mongoose
 - [ ] Pruebas unitarias
-
-
-Cambio algo para probar

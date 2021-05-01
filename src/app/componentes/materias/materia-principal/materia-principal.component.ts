@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { NuevaMateriaComponent } from '../nueva-materia/nueva-materia.component';
 
 @Component({
   selector: 'app-materia-principal',
@@ -14,7 +16,7 @@ export class MateriaPrincipalComponent implements OnInit {
   marcadorEditando: boolean = false;
   marcadorEliminando: boolean = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.inicializarFormularioBusqueda();
@@ -48,5 +50,9 @@ export class MateriaPrincipalComponent implements OnInit {
 
   buscarMaterias() {
     // TODO Armar método de búsqueda
+  }
+
+  abrirVentanaNueva() {
+    const ventanaEmergente = this.dialog.open(NuevaMateriaComponent);
   }
 }
