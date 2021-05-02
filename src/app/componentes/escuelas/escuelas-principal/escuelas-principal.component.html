@@ -1,0 +1,92 @@
+<mat-card>
+    <mat-card-title>Gestión de Cursos</mat-card-title>
+    <mat-divider></mat-divider>
+
+    <!-- CAJA DE BUSQUEDA Y ACCIONES -->
+    <div id="renglonBusqueda">
+        <form [formGroup]="formularioBusqueda">
+            <div id="buscador">
+                <!-- BUSQUEDA POR TEXTO -->
+                <mat-form-field class="example-full-width">
+                    <mat-label>Buscar curso</mat-label>
+                    <input type="text" matInput formControlName="escuelaBuscada" [matAutocomplete]="auto" placeholder="Ingresá parte del nombre" (ngModelChange)="this.buscarEscuelas()">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let escuela of escuelasFiltradas" (onSelectionChange)="this.elegirEscuela(escuela)">
+                            {{escuela.nombreCompleto}}
+                        </mat-option>
+                    </mat-autocomplete>
+                    <mat-error>Ingresá al menos 3 caracteres</mat-error>
+                </mat-form-field>
+
+                <!-- BOTON BUSCAR -->
+                <button id="botonBusqueda" mat-raised-button type="button" (click)="this.buscarEscuelas()">
+                    <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorBuscando"></i>
+                    <mat-icon *ngIf="!this.marcadorBuscando">manage_search</mat-icon>
+                    Buscar
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- FORMULARIO DOCENTE -->
+    <form [formGroup]="formulario" (submit)="this.editarEscuela()" id="formulario">
+        <div class="renglon">
+            <!-- CUE DE LA ESCUELA -->
+            <mat-form-field id="cue">
+                <mat-label>C.U.E.</mat-label>
+                <input type="text" matInput formControlName="cue">
+            </mat-form-field>
+
+            <div id="controles" *ngIf="this.hayDatos">
+                <!-- BOTON EDITAR -->
+                <button mat-raised-button class="bg-warning text-dark" type="button">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <!-- BOTON ELIMINAR -->
+                <button mat-raised-button (click)="this.eliminarEscuela()" class="bg-danger text-white" type="button">
+                    <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorEliminando"></i>
+                    <mat-icon *ngIf="!this.marcadorEliminando">delete</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="renglon">
+            <!-- NOMBRE DE LA ESCUELA -->
+            <mat-form-field>
+                <mat-label>Nombre completo</mat-label>
+                <input type="text" matInput formControlName="nombreCompleto">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+
+            <!-- DOMICILIO -->
+            <mat-form-field>
+                <mat-label>Domicilio</mat-label>
+                <input type="text" matInput formControlName="domicilio">
+            </mat-form-field>
+        </div>
+
+        <div class="renglon">
+            <!-- TELÉFONO DE LA ESCUELA -->
+            <mat-form-field>
+                <mat-label>Teléfono</mat-label>
+                <input type="text" matInput formControlName="telefono">
+            </mat-form-field>
+
+            <!-- CORREO ELECTRÓNICO DE LA ESCUELA -->
+            <mat-form-field>
+                <mat-label>Correo electrónico</mat-label>
+                <input type="text" matInput formControlName="correoElectronico">
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </div>
+
+        <!-- BOTONES CANCELAR Y GUARDAR -->
+        <div class="text-center">
+            <button mat-raised-button class="bg-secondary text-dark mr-2" (click)="this.formulario.disable()">Cancelar</button>
+            <button mat-raised-button class="bg-success text-dark ml-2" type="submit">
+                <i class="fas fa-spinner fa-spin" *ngIf="this.marcadorEditando"></i> Guardar cambios
+            </button>
+        </div>
+
+    </form>
+</mat-card>

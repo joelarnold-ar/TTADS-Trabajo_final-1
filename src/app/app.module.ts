@@ -24,6 +24,7 @@ import { NuevoCursoComponent } from './componentes/cursos/nuevo-curso/nuevo-curs
 import { MateriaPrincipalComponent } from './componentes/materias/materia-principal/materia-principal.component';
 import { NuevaMateriaComponent } from './componentes/materias/nueva-materia/nueva-materia.component';
 import { ConfirmarEliminarMateriaComponent } from './componentes/materias/confirmar-eliminar-materia/confirmar-eliminar-materia.component';
+import { EscuelasPrincipalComponent } from './componentes/escuelas/escuelas-principal/escuelas-principal.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ConfirmarEliminarMateriaComponent } from './componentes/materias/confir
     MateriaPrincipalComponent,
     NuevaMateriaComponent,
     ConfirmarEliminarMateriaComponent,
+    EscuelasPrincipalComponent,
   ],
   imports: [
     BrowserModule,
